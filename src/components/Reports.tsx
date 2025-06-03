@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { FileText, Download, Clock, CheckCircle, XCircle, AlertCircle, Plus, Search, DollarSign, BarChart3, Package, Users, TrendingUp, ArrowLeft, Eye, Copy, Edit, Trash2 } from 'lucide-react';
-import { Report, ReportTemplate } from '../types';
+import { Report } from '../types';
 import { mockReports, mockReportTemplates } from '../data/mockData';
 
 const Reports: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'reports' | 'templates' | 'generate'>('reports');
   const [selectedReport, setSelectedReport] = useState<Report | null>(null);
   const [showGenerateModal, setShowGenerateModal] = useState(false);
-  const [selectedTemplate, setSelectedTemplate] = useState<ReportTemplate | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [filterType, setFilterType] = useState<string>('all');
   const [viewMode, setViewMode] = useState<'list' | 'view'>('list');
@@ -670,7 +669,6 @@ const Reports: React.FC = () => {
                 </div>
                 <button
                   onClick={() => {
-                    setSelectedTemplate(template);
                     setShowGenerateModal(true);
                   }}
                   className="btn-primary text-sm"

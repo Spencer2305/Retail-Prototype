@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar, PieChart, Pie, Cell } from 'recharts';
-import { Eye, Mouse, Search, ShoppingCart, TrendingUp, Users, Activity } from 'lucide-react';
+import { XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar, PieChart, Pie, Cell } from 'recharts';
+import { Eye, Mouse, Search, ShoppingCart, TrendingUp, Users } from 'lucide-react';
 import { mockProductInsights } from '../data/mockData';
 
 const ProductInsights: React.FC = () => {
