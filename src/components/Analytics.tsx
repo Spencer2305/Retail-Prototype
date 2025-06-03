@@ -4,14 +4,12 @@ import { TrendingUp, TrendingDown, Users, ShoppingCart, Package, DollarSign } fr
 import { mockAnalyticsData } from '../data/mockData';
 
 const Analytics: React.FC = () => {
-  const { revenue, orders, customers, topProducts } = mockAnalyticsData;
-
-  const COLORS = ['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6'];
+  const data = mockAnalyticsData;
 
   const orderStatusData = [
-    { name: 'Completed', value: orders.completed, color: '#10b981' },
-    { name: 'Pending', value: orders.pending, color: '#f59e0b' },
-    { name: 'Cancelled', value: orders.cancelled, color: '#ef4444' }
+    { name: 'Completed', value: data.orders.completed, color: '#10b981' },
+    { name: 'Pending', value: data.orders.pending, color: '#f59e0b' },
+    { name: 'Cancelled', value: data.orders.cancelled, color: '#ef4444' }
   ];
 
   const formatCurrency = (value: number) => {
@@ -64,28 +62,28 @@ const Analytics: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <StatCard
           title="Total Revenue"
-          value={formatCurrency(revenue.monthly[revenue.monthly.length - 1].amount)}
+          value={formatCurrency(data.revenue.monthly[data.revenue.monthly.length - 1].amount)}
           change={12.5}
           icon={<DollarSign className="w-6 h-6 text-white" />}
           color="bg-blue-500"
         />
         <StatCard
           title="Total Orders"
-          value={formatNumber(orders.total)}
+          value={formatNumber(data.orders.total)}
           change={8.2}
           icon={<ShoppingCart className="w-6 h-6 text-white" />}
           color="bg-green-500"
         />
         <StatCard
           title="Total Customers"
-          value={formatNumber(customers.total)}
+          value={formatNumber(data.customers.total)}
           change={15.3}
           icon={<Users className="w-6 h-6 text-white" />}
           color="bg-purple-500"
         />
         <StatCard
           title="Products Sold"
-          value={formatNumber(topProducts.reduce((sum, p) => sum + p.sales, 0))}
+          value={formatNumber(data.topProducts.reduce((sum, p) => sum + p.sales, 0))}
           change={-2.1}
           icon={<Package className="w-6 h-6 text-white" />}
           color="bg-orange-500"
@@ -98,7 +96,7 @@ const Analytics: React.FC = () => {
         <div className="card">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Daily Revenue (Last 7 Days)</h3>
           <ResponsiveContainer width="100%" height={300}>
-            <AreaChart data={revenue.daily}>
+            <AreaChart data={data.revenue.daily}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis 
                 dataKey="date" 
@@ -125,7 +123,7 @@ const Analytics: React.FC = () => {
         <div className="card">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Monthly Revenue Trend</h3>
           <ResponsiveContainer width="100%" height={300}>
-            <LineChart data={revenue.monthly}>
+            <LineChart data={data.revenue.monthly}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="month" />
               <YAxis tickFormatter={(value) => formatCurrency(value)} />
@@ -186,7 +184,7 @@ const Analytics: React.FC = () => {
         <div className="card">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Top Selling Products</h3>
           <ResponsiveContainer width="100%" height={300}>
-            <BarChart data={topProducts} layout="horizontal">
+            <BarChart data={data.topProducts} layout="horizontal">
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis type="number" tickFormatter={(value) => formatNumber(value)} />
               <YAxis 
@@ -214,21 +212,21 @@ const Analytics: React.FC = () => {
           <div className="space-y-4">
             <div className="flex justify-between items-center">
               <span className="text-gray-600">Total Customers</span>
-              <span className="font-semibold text-gray-900">{formatNumber(customers.total)}</span>
+              <span className="font-semibold text-gray-900">{formatNumber(data.customers.total)}</span>
             </div>
             <div className="flex justify-between items-center">
               <span className="text-gray-600">New Customers</span>
-              <span className="font-semibold text-green-600">{formatNumber(customers.new)}</span>
+              <span className="font-semibold text-green-600">{formatNumber(data.customers.new)}</span>
             </div>
             <div className="flex justify-between items-center">
               <span className="text-gray-600">Returning Customers</span>
-              <span className="font-semibold text-blue-600">{formatNumber(customers.returning)}</span>
+              <span className="font-semibold text-blue-600">{formatNumber(data.customers.returning)}</span>
             </div>
             <div className="pt-4 border-t border-gray-200">
               <div className="flex justify-between items-center">
                 <span className="text-gray-600">Retention Rate</span>
                 <span className="font-semibold text-purple-600">
-                  {((customers.returning / customers.total) * 100).toFixed(1)}%
+                  {((data.customers.returning / data.customers.total) * 100).toFixed(1)}%
                 </span>
               </div>
             </div>
@@ -238,8 +236,54 @@ const Analytics: React.FC = () => {
         <div className="card lg:col-span-2">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Top Products by Revenue</h3>
           <div className="space-y-3">
-            {topProducts.map((item, index) => (
+            {data.topProducts.map((item, index) => (
               <div key={item.product.id} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                <div className="flex items-center space-x-3">
+                  <div className="flex-shrink-0">
+                    <div className="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center">
+                      <span className="text-primary-600 font-semibold">#{index + 1}</span>
+                    </div>
+                  </div>
+                  <div>
+                    <p className="font-medium text-gray-900">{item.product.name}</p>
+                    <p className="text-sm text-gray-500">SKU: {item.product.sku}</p>
+                  </div>
+                </div>
+                <div className="text-right">
+                  <p className="font-semibold text-gray-900">{formatCurrency(item.revenue)}</p>
+                  <p className="text-sm text-gray-500">{formatNumber(item.sales)} units</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="bg-white rounded-lg shadow-sm p-6">
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">Customer Insights</h3>
+          <div className="space-y-3">
+            <div className="flex justify-between items-center">
+              <span className="text-gray-600">New Customers</span>
+              <span className="font-semibold text-gray-900">{formatNumber(data.customers.new)}</span>
+            </div>
+            <div className="flex justify-between items-center">
+              <span className="text-gray-600">Returning Customers</span>
+              <span className="font-semibold text-gray-900">{formatNumber(data.customers.returning)}</span>
+            </div>
+            <div className="mt-4 text-sm text-gray-600">
+              <span className="inline-flex items-center">
+                Retention Rate: <span className="ml-1 font-semibold">{((data.customers.returning / data.customers.total) * 100).toFixed(1)}%</span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-white rounded-lg shadow-sm p-6">
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">Product Performance</h3>
+          <div className="space-y-3">
+            {data.topProducts.map((item: any, index: number) => (
+              <div key={index} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
                 <div className="flex items-center space-x-3">
                   <div className="flex-shrink-0">
                     <div className="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center">

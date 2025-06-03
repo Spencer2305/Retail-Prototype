@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line, PieChart, Pie, Cell } from 'recharts';
-import { Eye, MousePointer, ShoppingCart, Heart, Search, TrendingUp, Package, Filter } from 'lucide-react';
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar, PieChart, Pie, Cell } from 'recharts';
+import { Eye, Mouse, Search, ShoppingCart, TrendingUp, Users, Activity } from 'lucide-react';
 import { mockProductInsights } from '../data/mockData';
 
 const ProductInsights: React.FC = () => {
@@ -129,7 +129,7 @@ const ProductInsights: React.FC = () => {
           title="Total Clicks"
           value={formatNumber(totalClicks)}
           subtitle="Product interactions"
-          icon={<MousePointer className="w-6 h-6 text-white" />}
+          icon={<Mouse className="w-6 h-6 text-white" />}
           color="bg-green-500"
           trend={12.3}
         />
@@ -145,7 +145,7 @@ const ProductInsights: React.FC = () => {
           title="Wishlist Adds"
           value={formatNumber(totalWishlistAdds)}
           subtitle="Saved for later"
-          icon={<Heart className="w-6 h-6 text-white" />}
+          icon={<Users className="w-6 h-6 text-white" />}
           color="bg-pink-500"
           trend={25.4}
         />

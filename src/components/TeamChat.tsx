@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Hash, Users, Clock, Smile, AtSign, Send } from 'lucide-react';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { mockTeamChat, mockTeamMembers } from '../data/mockData';
 import { TeamChatChannel } from '../types';
 

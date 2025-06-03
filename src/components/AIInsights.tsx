@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar } from 'recharts';
-import { Brain, TrendingUp, AlertTriangle, Lightbulb, Target, Zap, Heart, MessageSquare, ShoppingCart, Users, DollarSign, Clock } from 'lucide-react';
+import { ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
+import { Brain, TrendingUp, AlertTriangle, Lightbulb, Target, Zap, MessageSquare, ShoppingCart, Users, DollarSign } from 'lucide-react';
 import { 
   mockSentimentAnalysis, 
   mockPredictiveAnalytics, 
@@ -98,18 +98,29 @@ const AIInsights: React.FC = () => {
             <div className="mb-4">
               <h4 className="text-sm font-medium text-gray-900 mb-2">Emotion Analysis</h4>
               <ResponsiveContainer width="100%" height={120}>
-                <RadarChart data={[
-                  { emotion: 'Joy', value: analysis.emotions.joy * 100 },
-                  { emotion: 'Anger', value: analysis.emotions.anger * 100 },
-                  { emotion: 'Fear', value: analysis.emotions.fear * 100 },
-                  { emotion: 'Sadness', value: analysis.emotions.sadness * 100 },
-                  { emotion: 'Surprise', value: analysis.emotions.surprise * 100 }
-                ]}>
-                  <PolarGrid />
-                  <PolarAngleAxis dataKey="emotion" tick={{ fontSize: 10 }} />
-                  <PolarRadiusAxis angle={90} domain={[0, 100]} tick={false} />
-                  <Radar name="Emotions" dataKey="value" stroke="#3b82f6" fill="#3b82f6" fillOpacity={0.2} />
-                </RadarChart>
+                <PieChart>
+                  <Pie
+                    data={[
+                      { name: 'Joy', value: analysis.emotions.joy * 100 },
+                      { name: 'Anger', value: analysis.emotions.anger * 100 },
+                      { name: 'Fear', value: analysis.emotions.fear * 100 },
+                      { name: 'Sadness', value: analysis.emotions.sadness * 100 },
+                      { name: 'Surprise', value: analysis.emotions.surprise * 100 }
+                    ]}
+                    cx="50%"
+                    cy="50%"
+                    labelLine={false}
+                    outerRadius={80}
+                    fill="#8884d8"
+                    dataKey="value"
+                  >
+                    {analysis.emotions.joy * 100 > 0 && <Cell fill={getSentimentColor('positive')} />}
+                    {analysis.emotions.anger * 100 > 0 && <Cell fill={getSentimentColor('negative')} />}
+                    {analysis.emotions.fear * 100 > 0 && <Cell fill={getSentimentColor('neutral')} />}
+                    {analysis.emotions.sadness * 100 > 0 && <Cell fill={getSentimentColor('neutral')} />}
+                    {analysis.emotions.surprise * 100 > 0 && <Cell fill={getSentimentColor('neutral')} />}
+                  </Pie>
+                </PieChart>
               </ResponsiveContainer>
             </div>
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { FileText, Download, Calendar, Clock, Plus, Filter, Search, Play, Pause, Trash2, Edit, Copy, CheckCircle, XCircle, AlertCircle, BarChart3, Users, Package, DollarSign, TrendingUp, ArrowLeft, Eye } from 'lucide-react';
-import { Report, ReportTemplate, ReportParameters } from '../types';
-import { mockReports, mockReportTemplates, mockProducts } from '../data/mockData';
+import { FileText, Download, Clock, CheckCircle, XCircle, AlertCircle, Plus, Search, DollarSign, BarChart3, Package, Users, TrendingUp, ArrowLeft, Eye, Copy, Edit, Trash2 } from 'lucide-react';
+import { Report, ReportTemplate } from '../types';
+import { mockReports, mockReportTemplates } from '../data/mockData';
 
 const Reports: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'reports' | 'templates' | 'generate'>('reports');

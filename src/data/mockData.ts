@@ -1,4 +1,6 @@
-import { ChatConversation, Product, Order, AnalyticsData, VisitorAnalytics, ProductInsights, TeamMember, TeamChatChannel, TeamChatMessage, Report, ReportTemplate, SentimentAnalysis, PredictiveAnalytic, AutomatedInsight, ProductRecommendation, ChatbotConfiguration, AIWorkflow, AIAnalyticsConfig } from '../types';
+import { ChatConversation, Product, Order, AnalyticsData, VisitorAnalytics, ProductInsights, TeamMember, TeamChatChannel, Report, ReportTemplate, SentimentAnalysis, PredictiveAnalytic, AutomatedInsight, ProductRecommendation, ChatbotConfiguration, AIWorkflow, AIAnalyticsConfig } from '../types';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import type { TeamChatMessage } from '../types';
 
 export const mockChatConversations: ChatConversation[] = [
   {

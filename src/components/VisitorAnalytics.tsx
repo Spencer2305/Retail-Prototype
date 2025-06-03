@@ -1,6 +1,6 @@
 import React from 'react';
-import { LineChart, Line, AreaChart, Area, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
-import { Users, Globe, Monitor, Smartphone, Tablet, Clock, TrendingUp, Eye } from 'lucide-react';
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, LineChart, Line } from 'recharts';
+import { Users, Globe, Smartphone, Monitor, Clock, TrendingUp, Activity, Tablet } from 'lucide-react';
 import { mockVisitorAnalytics } from '../data/mockData';
 
 const VisitorAnalytics: React.FC = () => {
@@ -72,7 +72,7 @@ const VisitorAnalytics: React.FC = () => {
           title="Total Page Views"
           value={formatNumber(totalPageViews)}
           subtitle="All pages"
-          icon={<Eye className="w-6 h-6 text-white" />}
+          icon={<Activity className="w-6 h-6 text-white" />}
           color="bg-green-500"
           trend={8.3}
         />
