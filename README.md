@@ -1,167 +1,148 @@
-# Ecommerce Dashboard
+# Premium Product Dashboard
 
-A professional, enterprise-grade ecommerce dashboard built with React, TypeScript, and Tailwind CSS. This dashboard is designed for high-value products and provides comprehensive management capabilities for chat support, analytics, products, and orders.
+A comprehensive ecommerce dashboard designed for £50,000+ product lines with advanced AI-powered features.
 
-## Features
+## 🌟 Features
 
-### 🤖 Chat Bot Management
-- **Real-time conversation tracking** with customers
-- **Intelligent order and product extraction** from chat messages
-- **Advanced search and filtering** across conversations
-- **Status management** (active, resolved, pending)
-- **Order number and SKU detection** in messages
-- **Professional chat interface** with timestamps and user identification
+- **AI Control Center** - Advanced chatbot configuration and AI workflow management
+- **AI Insights** - Sentiment analysis, predictive analytics, and automated insights
+- **Chat Bot** - Customer conversation management with order/product extraction
+- **Analytics** - Revenue tracking with interactive charts and KPIs
+- **Visitor Analytics** - Unique IP tracking and geographic distribution
+- **Product Insights** - Click tracking, conversion rates, and search analytics
+- **Products** - Comprehensive product catalog with filtering
+- **Orders** - Complete order management system
+- **Reports** - Advanced reporting with templates and scheduling
+- **Team Chat** - In-team communication with @mentions
 
-### 📊 Analytics Dashboard
-- **Revenue tracking** with daily and monthly trends
-- **Interactive charts** using Recharts library
-- **Key performance indicators** with trend analysis
-- **Order status distribution** with pie charts
-- **Top-selling products** analysis
-- **Customer insights** and retention metrics
-- **Real-time data visualization**
+## 🚀 Live Demo
 
-### 📦 Product Management
-- **Comprehensive product catalog** with images
-- **Advanced filtering** by status, category, and search terms
-- **Stock level monitoring** with low stock alerts
-- **Product detail modals** with full information
-- **Status indicators** (active, inactive, out of stock)
-- **Category-based organization**
-- **Professional product cards** with actions
+**Deployed URL:** [Will be available after Netlify deployment]
 
-### 🛒 Order Management
-- **Complete order tracking** system
-- **Customer information** management
-- **Order status workflow** (pending → processing → shipped → delivered)
-- **Detailed order views** with product breakdowns
-- **Search and filter** capabilities
-- **Order summary statistics**
-- **Professional table interface**
+## 📱 Iframe Embedding
 
-## Technology Stack
+This dashboard is specifically configured to be iframe-friendly and can be embedded into **executasolutions.com**.
 
-- **React 18** - Modern React with hooks and functional components
-- **TypeScript** - Type-safe development
-- **Tailwind CSS** - Utility-first CSS framework
-- **Recharts** - Professional charting library
-- **Lucide React** - Beautiful icon library
-- **Responsive Design** - Mobile-first approach
-
-## Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd ecommerce-dashboard
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Start the development server**
-   ```bash
-   npm start
-   ```
-
-4. **Open your browser**
-   Navigate to `http://localhost:3000`
-
-## Project Structure
-
-```
-src/
-├── components/          # React components
-│   ├── ChatBot.tsx     # Chat management interface
-│   ├── Analytics.tsx   # Analytics dashboard
-│   ├── Products.tsx    # Product management
-│   └── Orders.tsx      # Order management
-├── data/               # Mock data and types
-│   └── mockData.ts     # Sample data for demonstration
-├── types/              # TypeScript type definitions
-│   └── index.ts        # Interface definitions
-├── App.tsx             # Main application component
-├── index.tsx           # Application entry point
-└── index.css           # Global styles and Tailwind imports
+### Iframe HTML Code:
+```html
+<iframe 
+  src="[NETLIFY_URL]" 
+  width="100%" 
+  height="800" 
+  frameborder="0"
+  style="border: none; overflow: hidden;"
+  title="Premium Product Dashboard">
+</iframe>
 ```
 
-## Key Features for High-Value Products
+### Responsive Iframe (Recommended):
+```html
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%;">
+  <iframe 
+    src="[NETLIFY_URL]"
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
+    title="Premium Product Dashboard">
+  </iframe>
+</div>
+```
 
-### Professional Design
-- **Clean, modern interface** suitable for enterprise use
-- **Consistent branding** with customizable color scheme
-- **Professional typography** and spacing
-- **Responsive layout** for all device sizes
+### Auto-Resizing Iframe:
+```html
+<iframe 
+  id="dashboard-iframe"
+  src="[NETLIFY_URL]" 
+  width="100%" 
+  frameborder="0"
+  style="border: none; overflow: hidden;"
+  title="Premium Product Dashboard">
+</iframe>
 
-### Advanced Chat Bot
-- **Order number extraction** from customer messages
-- **Product SKU identification** in conversations
-- **Intelligent conversation categorization**
-- **Professional support interface**
+<script>
+window.addEventListener('message', function(event) {
+  if (event.data.type === 'iframe-resize') {
+    const iframe = document.getElementById('dashboard-iframe');
+    if (iframe) {
+      iframe.style.height = event.data.height + 'px';
+    }
+  }
+});
+</script>
+```
 
-### Comprehensive Analytics
-- **Revenue tracking** with multiple time periods
-- **Performance metrics** with trend indicators
-- **Customer behavior analysis**
-- **Product performance insights**
+## 🛠️ Local Development
 
-### Robust Product Management
-- **Multi-category support**
-- **Stock level monitoring**
-- **Status management**
-- **Professional product presentation**
+### Prerequisites
+- Node.js 18+ 
+- npm or yarn
 
-### Complete Order Workflow
-- **Full order lifecycle** management
-- **Customer information** tracking
-- **Product breakdown** in orders
-- **Status progression** tracking
+### Installation
+```bash
+git clone https://github.com/Spencer2305/Retail-Prototype.git
+cd Retail-Prototype
+npm install
+```
 
-## Customization
+### Development
+```bash
+npm start
+# Opens http://localhost:3000
+```
 
-### Colors and Branding
-The dashboard uses a customizable color scheme defined in `tailwind.config.js`. You can easily modify:
-- Primary colors
-- Brand colors
-- Status indicators
-- Chart colors
+### Build for Production
+```bash
+npm run build
+# Creates optimized build in /build folder
+```
 
-### Data Integration
-Replace the mock data in `src/data/mockData.ts` with real API calls to your backend services.
+## 🌐 Deployment Options
 
-### Additional Features
-The modular architecture makes it easy to add new features:
-- Customer management
-- Inventory tracking
-- Reporting modules
-- Integration with external services
+### Option 1: Netlify (Recommended)
+1. Connect your GitHub repo to Netlify
+2. Build settings are configured in `netlify.toml`
+3. Auto-deploys on git push
 
-## Production Deployment
+### Option 2: Vercel
+```bash
+npm install -g vercel
+vercel --prod
+```
 
-1. **Build the application**
-   ```bash
-   npm run build
-   ```
+### Option 3: GitHub Pages
+```bash
+npm install --save-dev gh-pages
+npm run build
+npx gh-pages -d build
+```
 
-2. **Deploy the build folder** to your hosting service
+## 🔧 Technology Stack
 
-## Browser Support
+- **Frontend:** React 18 + TypeScript
+- **Styling:** Tailwind CSS
+- **Charts:** Recharts
+- **Icons:** Lucide React
+- **Build:** Create React App
 
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
+## 📊 Mock Data
 
-## License
+The dashboard includes comprehensive mock data for:
+- Customer conversations with extracted order numbers
+- Sales analytics and revenue tracking
+- Product catalog with inventory management
+- Order management with status tracking
+- Visitor analytics with geographic data
+- AI insights and sentiment analysis
 
-This project is designed for professional ecommerce use and is suitable for high-value product management.
+## 🔒 Security & Iframe Configuration
 
-## Support
+- Configured to allow embedding in **executasolutions.com**
+- CSP headers set for secure iframe communication
+- Auto-resizing iframe support with postMessage API
+- Responsive design optimized for iframe display
 
-For technical support or customization requests, please contact the development team.
+## 📝 License
 
----
+This project is private and proprietary to Executa Solutions.
 
-**Built for professional ecommerce management with enterprise-grade features and design.** 
+## 🆘 Support
+
+For deployment or integration support, contact: [Your Contact Information] 

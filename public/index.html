@@ -7,12 +7,59 @@
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
-      content="Professional Ecommerce Dashboard"
+      content="Premium Product Dashboard - £50,000+ Product Line Management"
     />
-    <title>Ecommerce Dashboard</title>
+    <!-- Allow iframe embedding -->
+    <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'self' https://executasolutions.com https://*.executasolutions.com;">
+    
+    <title>Premium Product Dashboard</title>
+    
+    <style>
+      /* Ensure iframe compatibility */
+      body {
+        margin: 0;
+        padding: 0;
+        overflow-x: auto;
+        background-color: #f9fafb;
+      }
+      
+      /* Iframe responsive styling */
+      .iframe-friendly {
+        width: 100%;
+        min-height: 100vh;
+        border: none;
+        overflow: hidden;
+      }
+    </style>
   </head>
-  <body>
+  <body class="iframe-friendly">
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    
+    <!-- Iframe communication script -->
+    <script>
+      // Allow parent window communication for iframe resizing
+      if (window.parent !== window) {
+        // We're in an iframe
+        const resizeObserver = new ResizeObserver(entries => {
+          const height = document.body.scrollHeight;
+          window.parent.postMessage({
+            type: 'iframe-resize',
+            height: height
+          }, '*');
+        });
+        
+        resizeObserver.observe(document.body);
+        
+        // Initial height message
+        setTimeout(() => {
+          const height = document.body.scrollHeight;
+          window.parent.postMessage({
+            type: 'iframe-resize',
+            height: height
+          }, '*');
+        }, 1000);
+      }
+    </script>
   </body>
 </html> 
