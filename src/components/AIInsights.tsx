@@ -50,7 +50,7 @@ const AIInsights: React.FC = () => {
     <button
       onClick={onClick}
       className={`flex items-center space-x-2 px-4 py-2 rounded-lg font-medium transition-colors ${
-        isActive ? 'bg-primary-100 text-primary-700' : 'text-gray-600 hover:bg-gray-100'
+        isActive ? 'bg-gradient-to-r from-cosmic-purple/20 to-cosmic-indigo/20 text-cosmic-purple border border-cosmic-purple/30' : 'text-gray-600 hover:bg-gray-100'
       }`}
     >
       {icon}
@@ -62,7 +62,7 @@ const AIInsights: React.FC = () => {
     <div className="space-y-6">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {mockSentimentAnalysis.map((analysis, index) => (
-          <div key={index} className="card">
+          <div key={index} className="glass-card">
             <div className="flex items-center justify-between mb-4">
               <h3 className="font-semibold text-gray-900">{analysis.customerName}</h3>
               <div className="flex items-center space-x-2">
@@ -106,15 +106,15 @@ const AIInsights: React.FC = () => {
                     cx="50%"
                     cy="50%"
                     labelLine={false}
-                    outerRadius={80}
+                    outerRadius={40}
                     fill="#8884d8"
                     dataKey="value"
                   >
-                    {analysis.emotions.joy * 100 > 0 && <Cell fill={getSentimentColor('positive')} />}
-                    {analysis.emotions.anger * 100 > 0 && <Cell fill={getSentimentColor('negative')} />}
-                    {analysis.emotions.fear * 100 > 0 && <Cell fill={getSentimentColor('neutral')} />}
-                    {analysis.emotions.sadness * 100 > 0 && <Cell fill={getSentimentColor('neutral')} />}
-                    {analysis.emotions.surprise * 100 > 0 && <Cell fill={getSentimentColor('neutral')} />}
+                    <Cell fill="#10b981" />
+                    <Cell fill="#ef4444" />
+                    <Cell fill="#f59e0b" />
+                    <Cell fill="#6b7280" />
+                    <Cell fill="#8b5cf6" />
                   </Pie>
                 </PieChart>
               </ResponsiveContainer>
@@ -157,7 +157,7 @@ const AIInsights: React.FC = () => {
     <div className="space-y-6">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {mockPredictiveAnalytics.map((prediction, index) => (
-          <div key={index} className="card">
+          <div key={index} className="glass-card">
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center space-x-2">
                 <div className="p-2 bg-purple-100 rounded-lg">
@@ -241,7 +241,7 @@ const AIInsights: React.FC = () => {
     <div className="space-y-6">
       <div className="grid grid-cols-1 gap-6">
         {mockAutomatedInsights.map((insight, index) => (
-          <div key={index} className="card">
+          <div key={index} className="glass-card">
             <div className="flex items-start justify-between mb-4">
               <div className="flex items-start space-x-3">
                 <div className={`p-2 rounded-lg ${
@@ -302,7 +302,7 @@ const AIInsights: React.FC = () => {
     <div className="space-y-6">
       <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
         {mockProductRecommendations.map((recommendation, index) => (
-          <div key={index} className="card">
+          <div key={index} className="glass-card">
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center space-x-2">
                 <div className="p-2 bg-indigo-100 rounded-lg">

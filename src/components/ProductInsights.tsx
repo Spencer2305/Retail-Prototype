@@ -71,7 +71,7 @@ const ProductInsights: React.FC = () => {
     color: string;
     trend?: number;
   }> = ({ title, value, subtitle, icon, color, trend }) => (
-    <div className="card">
+    <div className="glass-card">
       <div className="flex items-center justify-between">
         <div>
           <p className="text-sm font-medium text-gray-600">{title}</p>
@@ -152,7 +152,7 @@ const ProductInsights: React.FC = () => {
       </div>
 
       {/* Product Performance Chart */}
-      <div className="card">
+      <div className="glass-card">
         <div className="flex justify-between items-center mb-4">
           <h3 className="text-lg font-semibold text-gray-900">Product Performance</h3>
           <div className="flex space-x-2">
@@ -202,7 +202,7 @@ const ProductInsights: React.FC = () => {
       {/* Charts Row */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Search Terms */}
-        <div className="card">
+        <div className="glass-card">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Top Search Terms</h3>
           <div className="space-y-3">
             {searchTerms.map((term, index) => (
@@ -234,7 +234,7 @@ const ProductInsights: React.FC = () => {
         </div>
 
         {/* Category Performance */}
-        <div className="card">
+        <div className="glass-card">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Category Performance</h3>
           <ResponsiveContainer width="100%" height={300}>
             <PieChart>
@@ -277,7 +277,7 @@ const ProductInsights: React.FC = () => {
       </div>
 
       {/* Detailed Product Table */}
-      <div className="card">
+      <div className="glass-card">
         <h3 className="text-lg font-semibold text-gray-900 mb-4">Detailed Product Analytics</h3>
         <div className="overflow-x-auto">
           <table className="w-full">
@@ -344,7 +344,7 @@ const ProductInsights: React.FC = () => {
       </div>
 
       {/* Abandoned Carts */}
-      <div className="card">
+      <div className="glass-card">
         <h3 className="text-lg font-semibold text-gray-900 mb-4">Cart Abandonment Analysis</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {abandonedCarts.map((item, index) => (

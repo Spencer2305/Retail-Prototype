@@ -384,7 +384,7 @@ const Reports: React.FC = () => {
         <div className="space-y-6">
           {/* Summary Section */}
           {report.parameters.includeSummary && (
-            <div className="card">
+            <div className="glass-card">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">Executive Summary</h3>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div className="text-center p-4 bg-blue-50 rounded-lg">
@@ -409,7 +409,7 @@ const Reports: React.FC = () => {
 
           {/* Charts Section */}
           {report.parameters.includeCharts && (
-            <div className="card">
+            <div className="glass-card">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">Performance Charts</h3>
               <div className="space-y-6">
                 {/* Revenue Chart */}
@@ -428,7 +428,7 @@ const Reports: React.FC = () => {
           )}
 
           {/* Data Tables */}
-          <div className="card">
+          <div className="glass-card">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">Top Performing Products</h3>
             <div className="overflow-x-auto">
               <table className="w-full">
@@ -453,7 +453,7 @@ const Reports: React.FC = () => {
           </div>
 
           {/* Metrics Details */}
-          <div className="card">
+          <div className="glass-card">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">Selected Metrics</h3>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               {report.parameters.metrics.map((metric, index) => (

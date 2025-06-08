@@ -35,7 +35,7 @@ const VisitorAnalytics: React.FC = () => {
     color: string;
     trend?: number;
   }> = ({ title, value, subtitle, icon, color, trend }) => (
-    <div className="card">
+    <div className="glass-card">
       <div className="flex items-center justify-between">
         <div>
           <p className="text-sm font-medium text-gray-600">{title}</p>
@@ -96,7 +96,7 @@ const VisitorAnalytics: React.FC = () => {
       {/* Charts Row 1 */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Daily Unique Visitors */}
-        <div className="card">
+        <div className="glass-card">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Daily Unique Visitors & IPs</h3>
           <ResponsiveContainer width="100%" height={300}>
             <AreaChart data={uniqueVisitors.daily}>
@@ -131,7 +131,7 @@ const VisitorAnalytics: React.FC = () => {
         </div>
 
         {/* Hourly Traffic Pattern */}
-        <div className="card">
+        <div className="glass-card">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Hourly Traffic Pattern</h3>
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={uniqueVisitors.hourly}>
@@ -154,7 +154,7 @@ const VisitorAnalytics: React.FC = () => {
       {/* Charts Row 2 */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Geographic Distribution */}
-        <div className="card">
+        <div className="glass-card">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Geographic Distribution</h3>
           <div className="flex items-center justify-center mb-4">
             <ResponsiveContainer width="100%" height={250}>
@@ -195,7 +195,7 @@ const VisitorAnalytics: React.FC = () => {
         </div>
 
         {/* Device Types */}
-        <div className="card">
+        <div className="glass-card">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Device Types</h3>
           <div className="space-y-4">
             {deviceTypes.map((device, index) => (
@@ -225,7 +225,7 @@ const VisitorAnalytics: React.FC = () => {
       </div>
 
       {/* Top Pages Table */}
-      <div className="card">
+      <div className="glass-card">
         <h3 className="text-lg font-semibold text-gray-900 mb-4">Top Pages Performance</h3>
         <div className="overflow-x-auto">
           <table className="w-full">

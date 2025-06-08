@@ -69,7 +69,7 @@ const AIControlCenter: React.FC = () => {
       </div>
 
       {/* Basic Configuration */}
-      <div className="card">
+      <div className="glass-card">
         <h3 className="text-lg font-semibold text-gray-900 mb-4">Basic Settings</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
@@ -119,7 +119,7 @@ const AIControlCenter: React.FC = () => {
       </div>
 
       {/* Welcome Message */}
-      <div className="card">
+      <div className="glass-card">
         <h3 className="text-lg font-semibold text-gray-900 mb-4">Welcome Message</h3>
         {isEditing ? (
           <textarea
@@ -136,7 +136,7 @@ const AIControlCenter: React.FC = () => {
       </div>
 
       {/* Working Hours */}
-      <div className="card">
+      <div className="glass-card">
         <h3 className="text-lg font-semibold text-gray-900 mb-4">Working Hours</h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div>
@@ -161,7 +161,7 @@ const AIControlCenter: React.FC = () => {
       </div>
 
       {/* Automated Responses */}
-      <div className="card">
+      <div className="glass-card">
         <div className="flex items-center justify-between mb-4">
           <h3 className="text-lg font-semibold text-gray-900">Automated Responses</h3>
           <button className="btn-secondary flex items-center space-x-2">
@@ -207,7 +207,7 @@ const AIControlCenter: React.FC = () => {
       </div>
 
       {/* Triggers */}
-      <div className="card">
+      <div className="glass-card">
         <div className="flex items-center justify-between mb-4">
           <h3 className="text-lg font-semibold text-gray-900">Proactive Triggers</h3>
           <button className="btn-secondary flex items-center space-x-2">
@@ -271,7 +271,7 @@ const AIControlCenter: React.FC = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {mockAIWorkflows.map((workflow, index) => (
-          <div key={index} className="card">
+          <div key={index} className="glass-card">
             <div className="flex items-center justify-between mb-4">
               <h3 className="font-semibold text-gray-900">{workflow.name}</h3>
               <StatusBadge isActive={workflow.isActive} />
@@ -331,7 +331,7 @@ const AIControlCenter: React.FC = () => {
 
       <div className="grid grid-cols-1 gap-6">
         {mockAIAnalyticsConfigs.map((config, index) => (
-          <div key={index} className="card">
+          <div key={index} className="glass-card">
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center space-x-3">
                 <div className="p-2 bg-blue-100 rounded-lg">
@@ -409,7 +409,7 @@ const AIControlCenter: React.FC = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div className="card">
+        <div className="glass-card">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm font-medium text-gray-600">Chatbot Status</p>
@@ -427,7 +427,7 @@ const AIControlCenter: React.FC = () => {
           </div>
         </div>
 
-        <div className="card">
+        <div className="glass-card">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm font-medium text-gray-600">Active Workflows</p>
@@ -445,7 +445,7 @@ const AIControlCenter: React.FC = () => {
           </div>
         </div>
 
-        <div className="card">
+        <div className="glass-card">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm font-medium text-gray-600">Sentiment Score</p>
@@ -463,7 +463,7 @@ const AIControlCenter: React.FC = () => {
           </div>
         </div>
 
-        <div className="card">
+        <div className="glass-card">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm font-medium text-gray-600">Alerts</p>
@@ -482,7 +482,7 @@ const AIControlCenter: React.FC = () => {
         </div>
       </div>
 
-      <div className="card">
+      <div className="glass-card">
         <div className="flex items-center justify-between mb-4">
           <h3 className="text-lg font-semibold text-gray-900">Recent Activity</h3>
           <button className="btn-secondary flex items-center space-x-2">

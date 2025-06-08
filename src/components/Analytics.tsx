@@ -32,7 +32,7 @@ const Analytics: React.FC = () => {
     icon: React.ReactNode;
     color: string;
   }> = ({ title, value, change, icon, color }) => (
-    <div className="card">
+    <div className="glass-card">
       <div className="flex items-center justify-between">
         <div>
           <p className="text-sm font-medium text-gray-600">{title}</p>
@@ -93,7 +93,7 @@ const Analytics: React.FC = () => {
       {/* Charts Row 1 */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Daily Revenue Chart */}
-        <div className="card">
+        <div className="glass-card">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Daily Revenue (Last 7 Days)</h3>
           <ResponsiveContainer width="100%" height={300}>
             <AreaChart data={data.revenue.daily}>
@@ -120,7 +120,7 @@ const Analytics: React.FC = () => {
         </div>
 
         {/* Monthly Revenue Trend */}
-        <div className="card">
+        <div className="glass-card">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Monthly Revenue Trend</h3>
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={data.revenue.monthly}>
@@ -145,7 +145,7 @@ const Analytics: React.FC = () => {
       {/* Charts Row 2 */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Order Status Distribution */}
-        <div className="card">
+        <div className="glass-card">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Order Status Distribution</h3>
           <div className="flex items-center justify-center">
             <ResponsiveContainer width="100%" height={300}>
@@ -181,7 +181,7 @@ const Analytics: React.FC = () => {
         </div>
 
         {/* Top Products */}
-        <div className="card">
+        <div className="glass-card">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Top Selling Products</h3>
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={data.topProducts} layout="horizontal">
@@ -207,7 +207,7 @@ const Analytics: React.FC = () => {
 
       {/* Customer Insights */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div className="card">
+        <div className="glass-card">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Customer Breakdown</h3>
           <div className="space-y-4">
             <div className="flex justify-between items-center">
