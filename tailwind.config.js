@@ -3,6 +3,7 @@ module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
@@ -18,6 +19,18 @@ module.exports = {
           800: '#1e40af',
           900: '#1e3a8a',
         },
+        // Dark theme colors matching the analytics dashboard
+        dark: {
+          bg: '#0a0a0a',
+          surface: '#111111',
+          card: '#1a1a1a',
+          cardHover: '#222222',
+          border: '#2a2a2a',
+          borderHover: '#3a3a3a',
+          text: '#ffffff',
+          textSecondary: '#a1a1aa',
+          textTertiary: '#71717a',
+        },
         cosmic: {
           purple: '#667eea',
           indigo: '#764ba2',
@@ -32,23 +45,21 @@ module.exports = {
           light: 'rgba(255, 255, 255, 0.1)',
           medium: 'rgba(255, 255, 255, 0.15)',
           dark: 'rgba(0, 0, 0, 0.3)',
+          darkCard: 'rgba(26, 26, 26, 0.8)',
+          darkCardHover: 'rgba(34, 34, 34, 0.9)',
         }
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',
         'slide-up': 'slideUp 0.3s ease-out',
         'cosmic-flow': 'cosmicFlow 20s ease-in-out infinite',
-        'nebula': 'nebula 15s ease-in-out infinite',
-        'float': 'float 6s ease-in-out infinite',
         'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
         'text-shimmer': 'textShimmer 8s ease-in-out infinite',
-        'sparkle': 'sparkleAnim 4s linear infinite',
         'slide-in-left': 'slideInFromLeft 0.8s cubic-bezier(0.23, 1, 0.32, 1)',
         'slide-in-right': 'slideInFromRight 0.8s cubic-bezier(0.23, 1, 0.32, 1)',
         'fade-in-up': 'fadeInUp 0.6s cubic-bezier(0.23, 1, 0.32, 1)',
         'rotate-slow': 'rotateSlow 30s linear infinite',
         'bounce-slow': 'bounceSlow 4s ease-in-out infinite',
-        'morph': 'morph 8s ease-in-out infinite',
       },
       keyframes: {
         fadeIn: {

@@ -10,7 +10,7 @@ import TeamChat from './components/TeamChat';
 import Reports from './components/Reports';
 import AIControlCenter from './components/AIControlCenter';
 import AIInsights from './components/AIInsights';
-import AnimatedBackground from './components/AnimatedBackground';
+import DarkModeToggle from './components/DarkModeToggle';
 
 function App() {
   const [activeTab, setActiveTab] = useState('ai-control');
@@ -37,8 +37,7 @@ function App() {
   const ActiveComponent = tabs.find(tab => tab.id === activeTab)?.component || AIControlCenter;
 
   return (
-    <div className="min-h-screen cosmic-bg relative">
-      <AnimatedBackground />
+    <div className="h-screen cosmic-bg relative overflow-hidden">
       
       {/* Header */}
       <header className={`relative z-50 transition-all duration-1000 ${isLoaded ? 'slide-in-left' : 'opacity-0'}`}>
@@ -48,7 +47,7 @@ function App() {
               <div className="flex items-center">
                 <button
                   onClick={() => setSidebarOpen(!sidebarOpen)}
-                  className="p-3 rounded-xl text-gray-600 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-cosmic-purple transition-all duration-300 lg:hidden"
+                  className="p-3 rounded-xl text-gray-600 dark:text-dark-textSecondary hover:text-gray-900 dark:hover:text-dark-text hover:bg-gray-100 dark:hover:bg-dark-card focus:outline-none focus:ring-2 focus:ring-cosmic-purple transition-all duration-300 lg:hidden"
                 >
                   {sidebarOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
                 </button>
@@ -61,7 +60,7 @@ function App() {
                       <div className="absolute -top-1 -right-1 w-4 h-4 bg-cosmic-coral rounded-full animate-pulse"></div>
                     </div>
                     <div>
-                      <h1 className="text-2xl font-bold text-gray-900 mb-1">
+                      <h1 className="text-2xl font-bold text-gray-900 dark:text-dark-text mb-1">
                         Premium <span className="text-gradient">Nexus</span>
                       </h1>
                       <div className="flex items-center space-x-2">
@@ -79,22 +78,23 @@ function App() {
                 </div>
               </div>
               <div className="flex items-center space-x-6">
-                <div className="flex items-center space-x-3 px-4 py-2 bg-white/60 backdrop-blur-sm rounded-xl border border-gray-200/50">
+                <div className="flex items-center space-x-3 px-4 py-2 bg-white/60 dark:bg-dark-card/60 backdrop-blur-sm rounded-xl border border-gray-200/50 dark:border-dark-border">
                   <div className="flex items-center space-x-2">
                     <div className="w-3 h-3 bg-cosmic-mint rounded-full animate-pulse"></div>
-                    <span className="text-sm text-gray-700 font-medium">Live</span>
+                    <span className="text-sm text-gray-700 dark:text-dark-textSecondary font-medium">Live</span>
                   </div>
-                  <div className="w-px h-4 bg-gray-300"></div>
+                  <div className="w-px h-4 bg-gray-300 dark:bg-dark-border"></div>
                   <div className="flex items-center space-x-2">
-                    <Users className="w-4 h-4 text-gray-600" />
-                    <span className="text-sm text-gray-700 font-medium">5 online</span>
+                    <Users className="w-4 h-4 text-gray-600 dark:text-dark-textSecondary" />
+                    <span className="text-sm text-gray-700 dark:text-dark-textSecondary font-medium">5 online</span>
                   </div>
                 </div>
                 <div className="hidden md:flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-cosmic-purple/20 to-cosmic-indigo/20 backdrop-blur-sm rounded-xl border border-cosmic-purple/30">
                   <Brain className="w-4 h-4 text-cosmic-purple" />
-                  <span className="text-sm text-gray-700 font-medium">AI Active</span>
+                  <span className="text-sm text-gray-700 dark:text-dark-textSecondary font-medium">AI Active</span>
                   <div className="w-2 h-2 bg-cosmic-purple rounded-full animate-pulse"></div>
                 </div>
+                <DarkModeToggle />
               </div>
             </div>
           </div>
@@ -103,12 +103,12 @@ function App() {
 
       <div className="flex h-[calc(100vh-6rem)] mt-4">
         {/* Sidebar */}
-        <div className={`${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} fixed inset-y-0 left-0 z-50 w-80 transition-transform duration-500 ease-out lg:translate-x-0 lg:static lg:inset-0 ${isLoaded ? 'slide-in-left animate-delay-200' : 'opacity-0'}`}>
-          <div className="flex flex-col h-full pt-20 lg:pt-0 pb-8">
-            <div className="sidebar-glass mx-4 mt-4 mb-4 rounded-2xl flex-1 min-h-0">
+        <div className={`${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} fixed inset-y-0 left-0 z-50 w-80 transition-transform duration-500 ease-out lg:translate-x-0 lg:static lg:inset-0 lg:h-auto ${isLoaded ? 'slide-in-left animate-delay-200' : 'opacity-0'}`}>
+          <div className="flex flex-col h-full lg:h-auto pt-20 lg:pt-0 pb-8">
+            <div className="sidebar-glass mx-4 mt-4 mb-4 rounded-2xl flex-1 lg:flex-none min-h-0">
               <div className="flex-1 flex flex-col overflow-y-auto p-6">
                 <div className="mb-8">
-                  <h2 className="text-gray-800 font-semibold text-lg mb-2">Navigation</h2>
+                  <h2 className="text-gray-800 dark:text-dark-text font-semibold text-lg mb-2">Navigation</h2>
                   <div className="w-16 h-1 bg-gradient-to-r from-cosmic-purple to-cosmic-pink rounded-full"></div>
                 </div>
                 <nav className="flex-1 space-y-2">
@@ -126,10 +126,10 @@ function App() {
                           activeTab === tab.id
                             ? isPremium
                               ? 'bg-gradient-to-r from-cosmic-purple/20 to-cosmic-indigo/20 text-cosmic-purple border border-cosmic-purple/30 shadow-lg shadow-cosmic-purple/10'
-                              : 'bg-gray-100 text-gray-900 border border-gray-200'
+                              : 'bg-gray-100 dark:bg-dark-cardHover text-gray-900 dark:text-dark-text border border-gray-200 dark:border-dark-border'
                             : isPremium
                               ? 'text-cosmic-purple hover:bg-cosmic-purple/5 hover:text-cosmic-purple'
-                              : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                              : 'text-gray-600 dark:text-dark-textSecondary hover:bg-gray-50 dark:hover:bg-dark-card hover:text-gray-900 dark:hover:text-dark-text'
                         } fade-in-up`}
                         style={{ animationDelay: `${index * 0.1}s` }}
                       >
@@ -159,9 +159,9 @@ function App() {
                     <div className="w-8 h-8 bg-gradient-to-br from-cosmic-gold to-cosmic-mint rounded-lg mx-auto mb-2 flex items-center justify-center">
                       <Star className="w-4 h-4 text-white" />
                     </div>
-                    <h3 className="text-gray-800 font-medium mb-1 text-sm">Elite Access</h3>
-                    <p className="text-gray-600 text-xs mb-2">Premium AI insights</p>
-                    <div className="w-full bg-gray-200 rounded-full h-1.5">
+                    <h3 className="text-gray-800 dark:text-dark-text font-medium mb-1 text-sm">Elite Access</h3>
+                    <p className="text-gray-600 dark:text-dark-textSecondary text-xs mb-2">Premium AI insights</p>
+                    <div className="w-full bg-gray-200 dark:bg-dark-border rounded-full h-1.5">
                       <div className="bg-gradient-to-r from-cosmic-gold to-cosmic-mint h-1.5 rounded-full w-4/5 animate-pulse"></div>
                     </div>
                     <p className="text-cosmic-purple text-xs mt-1 font-medium">80% used</p>
@@ -229,14 +229,14 @@ function App() {
               </div>
 
               {/* Tab Content */}
-              <div className="glass-card-minimal min-h-[600px] relative fade-in-up animate-delay-500">
+              <div className="glass-card-minimal relative fade-in-up animate-delay-500 mb-6">
                 {/* Content background pattern */}
                 <div className="absolute inset-0 opacity-3 pointer-events-none">
                   <div className="absolute top-10 right-10 w-32 h-32 bg-gradient-to-br from-cosmic-purple/20 to-cosmic-pink/20 rounded-full"></div>
                   <div className="absolute bottom-10 left-10 w-24 h-24 bg-gradient-to-br from-cosmic-blue/20 to-cosmic-mint/20 rounded-lg transform rotate-45"></div>
                 </div>
                 
-                <div className="relative z-10">
+                <div className="relative z-10 pb-8">
                   <ActiveComponent />
                 </div>
               </div>
